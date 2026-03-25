@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McCartney Cemetery | 501(c)(3) Non-Profit Heritage</title>
+    <style>
+        :root {
+            --primary: #2d5a27; /* Deep Forest Green */
+            --secondary: #d4af37; /* Metallic Gold */
+            --accent: #f4f1ea; /* Soft Parchment */
+            --text: #333;
+            --white: #ffffff;
+        }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body { background-color: var(--accent); color: var(--text); line-height: 1.6; }
+
+        /* Sticky Navigation */
+        header {
+            background: var(--primary);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav a { color: var(--white); text-decoration: none; margin-left: 20px; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: var(--secondary); }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1542713303-36c1e1948483?auto=format&fit=crop&q=80&w=1600') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; max-width: 800px; }
+
+        /* General Sections */
+        section { padding: 80px 10%; }
+        .dark-section { background-color: var(--primary); color: var(--white); }
+        h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--primary); }
+        .dark-section h2 { color: var(--secondary); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 30px; }
+        .card { background: var(--white); padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); color: var(--text); }
+
+        /* Policy Styling */
+        .policy-text { font-size: 0.85rem; max-height: 300px; overflow-y: auto; background: #eee; padding: 20px; border-radius: 5px; }
+
+        footer { background: #1a1a1a; color: #ccc; padding: 50px 10%; text-align: center; }
+        .cta-button { background: var(--secondary); color: var(--primary); padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="color: var(--secondary); font-size: 1.5rem; font-weight: bold;">MCCARTNEY CEMETERY</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#mission">Mission</a>
+            <a href="#records">Records</a>
+            <a href="#donate">501(c)(3)</a>
+            <a href="#policies">Policies</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Preserving Eternal Legacies</h1>
+        <p>A non-profit dedicated to the historical preservation and sacred maintenance of the McCartney Cemetery in Rogersville, Alabama.</p>
+        <a href="#donate" class="cta-button">Support Our Mission</a>
+    </section>
+
+    <section id="about">
+        <h2>About Our Non-Profit</h2>
+        <div class="grid">
+            <div>
+                <p>McCartney Cemetery is a registered <strong>501(c)(3) non-profit organization</strong>. Our primary objective is the restoration and perpetual care of our ancestral grounds. We believe that a community's history is written in the stone and soil of its resting places.</p>
+                <br>
+                <p>For decades, we have served the Rogersville area, ensuring that families have a peaceful, beautiful, and dignified environment to honor their loved ones. Our board is comprised of volunteers dedicated to transparency and historical integrity.</p>
+            </div>
+            <img src="https://images.unsplash.com/photo-1469474062087-30bf244a54ee?auto=format&fit=crop&q=80&w=600" alt="Nature" style="width:100%; border-radius:10px;">
+        </div>
+    </section>
+
+    <section id="mission" class="dark-section">
+        <h2>Our Sacred Mission</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Historical Preservation</h3>
+                <p>Documenting and restoring weathered headstones to preserve Alabama's local genealogy for future generations.</p>
+            </div>
+            <div class="card">
+                <h3>Landscape Stewardship</h3>
+                <p>Maintaining the natural flora and ensuring the grounds remain accessible and aesthetically serene year-round.</p>
+            </div>
+            <div class="card">
+                <h3>Community Education</h3>
+                <p>Providing resources for local historians and families to trace their roots through our meticulously kept records.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="donate">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <h2>501(c)(3) Tax-Deductible Contributions</h2>
+            <p>As a non-profit, we rely entirely on the generosity of our community. Your donations are tax-deductible to the fullest extent of the law. Every dollar goes toward lawn maintenance, stone repair, and fence restoration.</p>
+            <a href="mailto:johnclaytonmichael@gmail.com" class="cta-button">Inquire About Donations</a>
+        </div>
+    </section>
+
+    <section id="policies" style="background: #f9f9f9;">
+        <h2>Legal & Policies</h2>
+        <div class="grid">
+            <div>
+                <h3>Privacy Policy</h3>
+                <div class="policy-text">
+                    We value your privacy. Information collected via email is used solely for the purpose of communicating cemetery business. We do not sell or share your data with third-party advertisers. All transaction data is handled via secure, encrypted channels.
+                </div>
+            </div>
+            <div>
+                <h3>Terms of Use</h3>
+                <div class="policy-text">
+                    Visitors to McCartney Cemetery must adhere to all posted hours. We reserve the right to restrict access for maintenance. Please respect the sanctity of the grounds; no littering or unauthorized alterations to plots are permitted.
+                </div>
+            </div>
+            <div>
+                <h3>501(c)(3) Disclosure</h3>
+                <div class="policy-text">
+                    McCartney Cemetery is an Alabama-based non-profit. Financial statements and our IRS determination letter are available upon written request to the Board of Directors.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Connect With Us</h2>
+        <div class="grid">
+            <div>
+                <p><strong>Address:</strong><br>
+                2635 HIGHWAY 207<br>
+                ROGERSVILLE, AL 35652, United States</p>
+                <br>
+                <p><strong>Email:</strong><br>
+                <a href="mailto:johnclaytonmichael@gmail.com">johnclaytonmichael@gmail.com</a></p>
+            </div>
+            <div>
+                <h3>Office Hours</h3>
+                <p>Monday - Friday: 9:00 AM - 4:00 PM</p>
+                <p>Grounds: Open Sunrise to Sunset</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 McCartney Cemetery Non-Profit Organization. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">Dedicated to the preservation of Rogersville's history.</p>
+    </footer>
+
+</body>
+</html>
