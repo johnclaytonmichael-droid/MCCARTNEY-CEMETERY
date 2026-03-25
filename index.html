@@ -3,172 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>McCartney Cemetery | 501(c)(3) Non-Profit Heritage</title>
+    <title>McCartney Cemetery | 501(c)(3) Non-Profit Rogersville, AL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2d5a27; /* Deep Forest Green */
-            --secondary: #d4af37; /* Metallic Gold */
-            --accent: #f4f1ea; /* Soft Parchment */
-            --text: #333;
+            --primary-dark: #1b3022;
+            --forest: #2d5a27;
+            --earth-green: #4f772d;
+            --gold: #d4af37;
+            --sky-blue: #e0f2f1;
             --white: #ffffff;
+            --gray: #f8f9fa;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        
-        body { background-color: var(--accent); color: var(--text); line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Lato', sans-serif; line-height: 1.8; color: #333; overflow-x: hidden; }
 
-        /* Sticky Navigation */
-        header {
-            background: var(--primary);
-            padding: 1rem 5%;
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* Navigation */
+        nav {
             position: sticky;
             top: 0;
-            z-index: 1000;
+            background: var(--primary-dark);
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        nav a { color: var(--white); text-decoration: none; margin-left: 20px; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
-        nav a:hover { color: var(--secondary); }
+        .logo { color: var(--gold); font-size: 1.5rem; font-weight: bold; text-decoration: none; letter-spacing: 1px; }
+
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 25px; }
+        .nav-links a { color: var(--white); text-decoration: none; font-weight: 700; transition: 0.3s; font-size: 0.9rem; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--gold); }
 
         /* Hero Section */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1542713303-36c1e1948483?auto=format&fit=crop&q=80&w=1600') center/cover;
+            height: 90vh;
+            background: linear-gradient(rgba(27, 48, 34, 0.6), rgba(27, 48, 34, 0.6)), 
+                        url('https://images.unsplash.com/photo-1542713303-36c1e1948483?q=80&w=1600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: var(--white);
-            padding: 0 20px;
+            padding: 20px;
         }
 
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; max-width: 800px; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; font-weight: 300; }
+        
+        .btn {
+            background: var(--gold);
+            color: var(--primary-dark);
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn:hover { background: var(--white); transform: translateY(-3px); }
 
-        /* General Sections */
-        section { padding: 80px 10%; }
-        .dark-section { background-color: var(--primary); color: var(--white); }
-        h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--primary); }
-        .dark-section h2 { color: var(--secondary); }
+        /* General Section Styling */
+        section { padding: 100px 10%; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.8rem; color: var(--primary-dark); position: relative; padding-bottom: 15px; }
+        .section-header h2::after { content: ''; width: 80px; height: 4px; background: var(--gold); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 30px; }
-        .card { background: var(--white); padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); color: var(--text); }
+        /* Content Grid */
+        .content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; align-items: center; }
+        .img-wrap img { width: 100%; border-radius: 15px; box-shadow: 20px 20px 0 var(--gold); }
+        
+        /* Stats/501c3 Banner */
+        .status-banner { background: var(--earth-green); color: var(--white); padding: 60px 10%; display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; }
+        .stat-item h3 { font-size: 2.5rem; color: var(--gold); }
 
-        /* Policy Styling */
-        .policy-text { font-size: 0.85rem; max-height: 300px; overflow-y: auto; background: #eee; padding: 20px; border-radius: 5px; }
+        /* Cards */
+        .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--gold); }
+        .card h3 { margin-bottom: 15px; color: var(--forest); }
 
-        footer { background: #1a1a1a; color: #ccc; padding: 50px 10%; text-align: center; }
-        .cta-button { background: var(--secondary); color: var(--primary); padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; }
+        /* Policies Section */
+        .policy-box { background: var(--gray); padding: 40px; border-radius: 20px; border: 1px solid #ddd; height: 100%; }
+        .scroll-text { height: 200px; overflow-y: scroll; padding-right: 15px; margin-top: 20px; font-size: 0.9rem; color: #666; }
+
+        /* Contact Section */
+        #contact { background: var(--primary-dark); color: var(--white); }
+        #contact h2 { color: var(--gold); }
+        .contact-info { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
+
+        footer { background: #111; color: #888; text-align: center; padding: 40px; border-top: 1px solid #333; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section { padding: 60px 5%; }
+            .nav-links { display: none; } /* Simplified for demo */
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <div style="color: var(--secondary); font-size: 1.5rem; font-weight: bold;">MCCARTNEY CEMETERY</div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#mission">Mission</a>
-            <a href="#records">Records</a>
-            <a href="#donate">501(c)(3)</a>
-            <a href="#policies">Policies</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <nav>
+        <a href="#" class="logo">MCCARTNEY CEMETERY</a>
+        <ul class="nav-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#mission">Our Mission</a></li>
+            <li><a href="#nonprofit">Non-Profit Status</a></li>
+            <li><a href="#policies">Policies</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
     <section class="hero">
-        <h1>Preserving Eternal Legacies</h1>
-        <p>A non-profit dedicated to the historical preservation and sacred maintenance of the McCartney Cemetery in Rogersville, Alabama.</p>
-        <a href="#donate" class="cta-button">Support Our Mission</a>
+        <h1>Preserving Our History, Honoring Our Legacies</h1>
+        <p>A sacred 501(c)(3) non-profit organization dedicated to the perpetual care and historical preservation of the McCartney Cemetery in Rogersville, Alabama.</p>
+        <a href="#contact" class="btn">Get Involved Today</a>
     </section>
 
     <section id="about">
-        <h2>About Our Non-Profit</h2>
-        <div class="grid">
-            <div>
-                <p>McCartney Cemetery is a registered <strong>501(c)(3) non-profit organization</strong>. Our primary objective is the restoration and perpetual care of our ancestral grounds. We believe that a community's history is written in the stone and soil of its resting places.</p>
+        <div class="content-grid">
+            <div class="text-content">
+                <div class="section-header" style="text-align: left;">
+                    <h2>Our Heritage</h2>
+                </div>
+                <p>The McCartney Cemetery is more than just a resting place; it is a vital chronicle of our community’s journey through time. As a 501(c)(3) non-profit, we work tirelessly to ensure that the stories etched in stone are never forgotten.</p>
                 <br>
-                <p>For decades, we have served the Rogersville area, ensuring that families have a peaceful, beautiful, and dignified environment to honor their loved ones. Our board is comprised of volunteers dedicated to transparency and historical integrity.</p>
+                <p>Founded on the principles of respect and historical stewardship, our organization manages the maintenance, security, and restoration of the grounds. We bridge the gap between the past and the present, providing a serene space for reflection and genealogy.</p>
             </div>
-            <img src="https://images.unsplash.com/photo-1469474062087-30bf244a54ee?auto=format&fit=crop&q=80&w=600" alt="Nature" style="width:100%; border-radius:10px;">
-        </div>
-    </section>
-
-    <section id="mission" class="dark-section">
-        <h2>Our Sacred Mission</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Historical Preservation</h3>
-                <p>Documenting and restoring weathered headstones to preserve Alabama's local genealogy for future generations.</p>
-            </div>
-            <div class="card">
-                <h3>Landscape Stewardship</h3>
-                <p>Maintaining the natural flora and ensuring the grounds remain accessible and aesthetically serene year-round.</p>
-            </div>
-            <div class="card">
-                <h3>Community Education</h3>
-                <p>Providing resources for local historians and families to trace their roots through our meticulously kept records.</p>
+            <div class="img-wrap">
+                <img src="https://images.unsplash.com/photo-1542713303-36c1e1948483?q=80&w=600&auto=format&fit=crop" alt="Cemetery Grounds">
             </div>
         </div>
     </section>
 
-    <section id="donate">
-        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-            <h2>501(c)(3) Tax-Deductible Contributions</h2>
-            <p>As a non-profit, we rely entirely on the generosity of our community. Your donations are tax-deductible to the fullest extent of the law. Every dollar goes toward lawn maintenance, stone repair, and fence restoration.</p>
-            <a href="mailto:johnclaytonmichael@gmail.com" class="cta-button">Inquire About Donations</a>
+    <section id="mission" style="background: var(--gray);">
+        <div class="section-header">
+            <h2>The Mission</h2>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <h3>Restoration</h3>
+                <p>We utilize specialized techniques to clean and stabilize aging headstones, ensuring that the names of our ancestors remain legible for centuries to come.</p>
+            </div>
+            <div class="card">
+                <h3>Stewardship</h3>
+                <p>Our team manages the lush landscapes of Rogersville, Alabama, maintaining the flora and natural beauty that surrounds our sacred grounds.</p>
+            </div>
+            <div class="card">
+                <h3>Community</h3>
+                <p>We provide educational resources and assist families in tracing their roots, fostering a deep connection between the current generation and their heritage.</p>
+            </div>
         </div>
     </section>
 
-    <section id="policies" style="background: #f9f9f9;">
-        <h2>Legal & Policies</h2>
-        <div class="grid">
-            <div>
-                <h3>Privacy Policy</h3>
-                <div class="policy-text">
-                    We value your privacy. Information collected via email is used solely for the purpose of communicating cemetery business. We do not sell or share your data with third-party advertisers. All transaction data is handled via secure, encrypted channels.
+    <div class="status-banner" id="nonprofit">
+        <div class="stat-item">
+            <h3>501(c)(3)</h3>
+            <p>Official Tax-Exempt Status</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>Volunteer Driven</p>
+        </div>
+        <div class="stat-item">
+            <h3>Tax-Deductible</h3>
+            <p>On All Contributions</p>
+        </div>
+    </div>
+
+    <section id="policies">
+        <div class="section-header">
+            <h2>Non-Profit Policies</h2>
+        </div>
+        <div class="content-grid">
+            <div class="policy-box">
+                <h3>Visitor Conduct Policy</h3>
+                <div class="scroll-text">
+                    McCartney Cemetery is a sacred space. Visitors are asked to maintain a respectful volume and adhere to "Leave No Trace" principles. No commercial photography is permitted without prior written consent from the board. Pets must be leashed at all times. The grounds are open from dawn until dusk. Any trespassers after hours will be subject to local law enforcement.
                 </div>
             </div>
-            <div>
-                <h3>Terms of Use</h3>
-                <div class="policy-text">
-                    Visitors to McCartney Cemetery must adhere to all posted hours. We reserve the right to restrict access for maintenance. Please respect the sanctity of the grounds; no littering or unauthorized alterations to plots are permitted.
-                </div>
-            </div>
-            <div>
-                <h3>501(c)(3) Disclosure</h3>
-                <div class="policy-text">
-                    McCartney Cemetery is an Alabama-based non-profit. Financial statements and our IRS determination letter are available upon written request to the Board of Directors.
+            <div class="policy-box">
+                <h3>Donation Transparency</h3>
+                <div class="scroll-text">
+                    As a 501(c)(3) organization, McCartney Cemetery maintains full transparency regarding fund allocation. 95% of all donations go directly to ground maintenance, fence repairs, and headstone restoration. Financial reports are available to the public upon request. We thank you for your support in keeping our history alive.
                 </div>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <h2>Connect With Us</h2>
-        <div class="grid">
-            <div>
-                <p><strong>Address:</strong><br>
-                2635 HIGHWAY 207<br>
-                ROGERSVILLE, AL 35652, United States</p>
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+        </div>
+        <div class="contact-info">
+            <div style="flex: 1; min-width: 300px;">
+                <h3>Location</h3>
+                <p>2635 HIGHWAY 207</p>
+                <p>ROGERSVILLE, AL 35652, United States</p>
                 <br>
-                <p><strong>Email:</strong><br>
-                <a href="mailto:johnclaytonmichael@gmail.com">johnclaytonmichael@gmail.com</a></p>
+                <h3>Email Us</h3>
+                <p><a href="mailto:johnclaytonmichael@gmail.com" style="color: var(--gold); text-decoration: none;">johnclaytonmichael@gmail.com</a></p>
             </div>
-            <div>
-                <h3>Office Hours</h3>
-                <p>Monday - Friday: 9:00 AM - 4:00 PM</p>
-                <p>Grounds: Open Sunrise to Sunset</p>
+            <div style="flex: 1; min-width: 300px; background: rgba(255,255,255,0.1); padding: 30px; border-radius: 10px;">
+                <h3>Contact Form</h3>
+                <form action="#" style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+                    <input type="text" placeholder="Your Name" style="padding: 10px; border-radius: 5px; border: none;">
+                    <input type="email" placeholder="Your Email" style="padding: 10px; border-radius: 5px; border: none;">
+                    <textarea placeholder="Your Message" rows="4" style="padding: 10px; border-radius: 5px; border: none;"></textarea>
+                    <button type="submit" class="btn" style="border: none; cursor: pointer;">Send Message</button>
+                </form>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 McCartney Cemetery Non-Profit Organization. All Rights Reserved.</p>
-        <p style="font-size: 0.8rem; margin-top: 10px;">Dedicated to the preservation of Rogersville's history.</p>
+        <p>&copy; 2024 McCartney Cemetery | A Registered 501(c)(3) Non-Profit Organization</p>
+        <p style="font-size: 0.7rem; margin-top: 10px; letter-spacing: 1px;">PRESERVING ROGERSVILLE'S LEGACY FOR THE FUTURE</p>
     </footer>
 
 </body>
